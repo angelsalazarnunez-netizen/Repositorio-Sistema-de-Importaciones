@@ -1,0 +1,262 @@
+.pantalla-registro {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 48px 16px 64px;
+
+    background-color: var(--color-fondo);
+}
+
+.tarjeta-registro {
+    width: 100%;
+    max-width: 760px;
+
+    background-color: var(--color-superficie);
+
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+            0 10px 28px
+            rgba(0, 0, 0, 0.08);
+}
+
+.encabezado-registro {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 18px 24px;
+
+    background-color: var(--color-primario);
+    color: var(--color-superficie);
+}
+
+.logo-ucr {
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    border: 2px dashed
+    color-mix(
+            in srgb,
+            var(--color-superficie) 70%,
+            transparent
+    );
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.encabezado-registro h1 {
+    margin: 0;
+
+    color: var(--color-superficie);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cuerpo-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 26px 30px 30px;
+}
+
+.cuerpo-registro .form-label {
+    margin-bottom: 7px;
+
+    color: var(--color-texto);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cuerpo-registro .form-control {
+    min-height: 44px;
+
+    border-color: var(--color-borde);
+
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+}
+
+.cuerpo-registro .form-control:focus {
+    border-color: var(--color-primario);
+
+    box-shadow:
+            0 0 0 0.2rem
+            color-mix(
+                    in srgb,
+                    var(--color-primario) 15%,
+                    transparent
+            );
+}
+
+.ayuda,
+.nota {
+    margin: 0;
+
+    color: var(--color-texto-secundario);
+
+    font-size: 13px;
+}
+
+.nota {
+    margin-top: 12px;
+
+    line-height: 1.5;
+}
+
+.requisitos {
+    list-style: none;
+
+    display: grid;
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+    gap: 8px 18px;
+
+    margin: 12px 0 0;
+    padding: 0;
+
+    font-size: 13px;
+}
+
+.requisitos li {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.requisitos li span {
+    width: 18px;
+    height: 18px;
+
+    display: inline-grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.requisitos .ok {
+    color: var(--color-exito);
+}
+
+.requisitos .pendiente {
+    color: var(--color-error);
+}
+
+.resumen-registro {
+    padding: 16px 18px;
+
+    background-color: var(--color-fondo-suave);
+
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+}
+
+.resumen-registro p {
+    margin: 0 0 8px;
+
+    color: var(--color-texto);
+}
+
+.resumen-registro p:last-child {
+    margin-bottom: 0;
+}
+
+.acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    margin-top: 18px;
+    padding-top: 18px;
+
+    border-top: 1px solid var(--color-borde);
+}
+
+.acciones .btn {
+    min-width: 120px;
+}
+
+.cuerpo-registro .alert {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .pantalla-registro {
+        padding: 30px 14px 48px;
+    }
+
+    .tarjeta-registro {
+        max-width: 100%;
+    }
+
+    .cuerpo-registro {
+        padding: 22px 20px 24px;
+    }
+
+    .requisitos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .pantalla-registro {
+        padding: 18px 10px 32px;
+    }
+
+    .tarjeta-registro {
+        border-radius: 10px;
+    }
+
+    .encabezado-registro {
+        padding: 16px 18px;
+    }
+
+    .encabezado-registro h1 {
+        font-size: 17px;
+    }
+
+    .logo-ucr {
+        width: 44px;
+        height: 44px;
+    }
+
+    .cuerpo-registro {
+        padding: 20px 16px;
+    }
+
+    .acciones {
+        flex-direction: column-reverse;
+    }
+
+    .acciones .btn {
+        width: 100%;
+    }
+}
+/* Descripción breve de la pantalla, debajo del título del encabezado. */
+.descripcion-registro {
+    margin-top: 4px;
+    color: color-mix(in srgb, var(--color-superficie) 85%, transparent);
+    font-size: 14px;
+    line-height: 1.4;
+}

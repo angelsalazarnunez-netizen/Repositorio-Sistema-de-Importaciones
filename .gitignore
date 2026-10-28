@@ -1,0 +1,56 @@
+HELP.md
+
+### Maven ###
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!Backend/.mvn/wrapper/maven-wrapper.jar
+
+### Java compiled files ###
+*.class
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Environment / secrets ###
+.env
+### Claude Code ###
+.claude/
+
+### HU-031: documentacion de respaldo cargada por las personas usuarias ###
+documentos/
+
+### Node y React (Frontend) ###
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+
+### Documentacion de respaldo que guardan los expedientes en local ###
+Backend/documentos/

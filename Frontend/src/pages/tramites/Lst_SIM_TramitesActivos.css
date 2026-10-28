@@ -1,0 +1,81 @@
+/*
+ * Autor: Equipo de Desarrollo SIM
+ * Fecha: 05/10/2026
+ * Descripción: Estilos del panel de trámites activos (HU-030).
+ */
+
+.sim-panel-badge {
+    background-color: #e6eff8;
+    color: var(--sim-azul);
+}
+
+.sim-panel-indicador {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+    color: #5b6773;
+}
+
+.sim-panel-indicador:hover,
+.sim-panel-indicador:focus-visible {
+    border-color: var(--sim-azul);
+}
+
+.sim-panel-indicador-valor {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sim-azul);
+}
+
+.sim-panel-indicador-aviso {
+    background-color: #fcf2da;
+    color: #7a5b06;
+}
+
+.sim-panel-indicador-aviso .sim-panel-indicador-valor {
+    color: #7a5b06;
+}
+
+.sim-panel-indicador-alerta {
+    background-color: #fbe9e9;
+    color: #9b2c2c;
+}
+
+.sim-panel-indicador-alerta .sim-panel-indicador-valor {
+    color: #9b2c2c;
+}
+
+.sim-panel-indicador-activo {
+    outline: 2px solid var(--sim-azul);
+    outline-offset: 1px;
+}
+
+.sim-panel-tabla thead th {
+    white-space: nowrap;
+}
+
+.sim-panel-motivo {
+    min-width: 200px;
+}
+
+/* Los motivos largos (descripciones de equipos) se muestran en dos líneas; el texto completo
+   queda en el título. */
+.sim-panel-motivo span {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sim-panel-dias-proximo {
+    color: #7a5b06;
+    font-weight: 600;
+}
+
+.sim-panel-dias-vencido {
+    color: #9b2c2c;
+    font-weight: 600;
+}

@@ -1,0 +1,408 @@
+/* Integración con main (12/10/2026): la pantalla va dentro del contenedor de Cmp_SIM_Marco,
+   que ya da el fondo, el alto y los márgenes. */
+.pantalla-asignar-roles {
+    padding: 0;
+}
+
+.contenedor-asignar-roles {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+.pantalla-asignar-roles .ruta-navegacion {
+    margin-bottom: 8px;
+    color: var(--color-texto-secundario);
+    font-size: 16px;
+}
+
+.pantalla-asignar-roles h1 {
+    margin: 0 0 26px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+/*barra de busqueda*/
+
+.tarjeta-busqueda-usuario {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+}
+
+.formulario-busqueda {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.campo-busqueda {
+    flex: 1;
+}
+
+.campo-busqueda .form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.formulario-busqueda .btn {
+    min-width: 120px;
+    min-height: 46px;
+}
+
+/* tarjeta de usuario*/
+
+.tarjeta-usuario {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+
+    padding: 22px 26px;
+    margin-bottom: 20px;
+}
+
+.avatar-usuario-grande {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    background-color: var(--color-secundario);
+    color: var(--color-superficie);
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.informacion-usuario {
+    flex: 1;
+    min-width: 0;
+}
+
+.informacion-usuario h2 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.informacion-usuario p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+    font-size: 15px;
+}
+
+.estado-usuario {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 12px;
+    border-radius: 16px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.estado-usuario-activo {
+    background-color: var(--color-exito);
+    color: var(--color-texto);
+}
+
+.estado-usuario-inactivo {
+    background-color: var(--color-fondo);
+    color: var(--color-texto-secundario);
+}
+
+/* tarjeta princopal*/
+
+.tarjeta-asignacion {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+
+    padding: 28px 30px;
+    margin-bottom: 28px;
+}
+
+.tarjeta-asignacion .encabezado-seccion {
+    margin-bottom: 20px;
+}
+
+.tarjeta-asignacion .encabezado-seccion h2 {
+    margin: 0 0 5px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.tarjeta-asignacion .encabezado-seccion p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+}
+
+/*roles disponibles*/
+
+.rejilla-roles-asignacion {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+}
+
+.opcion-rol {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    min-height: 80px;
+    padding: 15px 17px;
+
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+
+    background-color: var(--color-superficie);
+    cursor: pointer;
+
+    transition:
+            border-color 0.15s ease,
+            background-color 0.15s ease;
+}
+
+.opcion-rol:hover {
+    border-color: var(--color-primario);
+}
+
+.opcion-rol.seleccionado {
+    border-color: var(--color-primario);
+    background-color: var(--color-fondo-suave);
+}
+
+.opcion-rol .form-check-input {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.opcion-rol .form-check-input:checked {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.opcion-rol div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.opcion-rol strong {
+    color: var(--color-texto);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.opcion-rol small {
+    color: var(--color-texto-secundario);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+/* motivo de asignacion/eliminacion */
+
+.campo-motivo {
+    margin-top: 26px;
+}
+
+.campo-motivo .form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.campo-motivo textarea.form-control {
+    min-height: 96px;
+    resize: vertical;
+}
+
+/* permisos efectivos*/
+
+.seccion-permisos-efectivos {
+    margin-top: 28px;
+    padding: 20px;
+
+    background-color: var(--color-fondo-suave);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+}
+
+.seccion-permisos-efectivos h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.permisos-efectivos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.seccion-permisos-efectivos .etiqueta-permiso {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+}
+
+/*pie de página*/
+
+.pie-asignacion {
+    margin-top: 26px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--color-borde);
+}
+
+.pie-asignacion > p {
+    margin: 0 0 18px;
+    color: var(--color-texto-secundario);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.pie-asignacion .acciones-formulario {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/*estados*/
+
+.texto-secundario {
+    margin: 0;
+    color: var(--color-texto-secundario);
+}
+
+.alert {
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 900px) {
+    .rejilla-roles-asignacion {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .formulario-busqueda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .formulario-busqueda .btn {
+        width: 100%;
+    }
+
+    .tarjeta-usuario {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .estado-usuario {
+        margin-left: 76px;
+    }
+}
+
+@media (max-width: 576px) {
+    .tarjeta-busqueda-usuario,
+    .tarjeta-usuario,
+    .tarjeta-asignacion {
+        padding: 20px 16px;
+        border-radius: 8px;
+    }
+
+    .pantalla-asignar-roles h1 {
+        font-size: 27px;
+    }
+
+    .tarjeta-usuario {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .estado-usuario {
+        grid-column: 2;
+        margin-left: 0;
+        justify-self: start;
+    }
+
+    .pie-asignacion .acciones-formulario {
+        flex-direction: column-reverse;
+    }
+
+    .pie-asignacion .acciones-formulario .btn {
+        width: 100%;
+    }
+
+    .encabezado-roles {
+        align-items: center;
+    }
+
+    .contador-roles {
+        flex: 0 0 auto;
+
+        padding: 6px 12px;
+
+        border-radius: 16px;
+        background-color: var(--color-fondo-suave);
+        color: var(--color-texto-secundario);
+
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .contenido-opcion-rol {
+        flex: 1;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .titulo-opcion-rol {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .etiqueta-asignado {
+        display: inline-flex;
+        align-items: center;
+
+        padding: 3px 9px;
+
+        border-radius: 14px;
+
+        background-color: var(--color-exito);
+        color: var(--color-texto);
+
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .aviso-cambios {
+        margin: 0 0 10px;
+        font-weight: 600;
+        color: var(--color-primario);
+    }
+}

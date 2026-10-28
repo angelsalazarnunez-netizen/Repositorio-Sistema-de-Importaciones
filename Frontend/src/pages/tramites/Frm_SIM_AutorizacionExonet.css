@@ -1,0 +1,283 @@
+/*
+ * Autor: Equipo de Desarrollo SIM
+ * Fecha: 05/10/2026
+ * Descripción: estilos de HU-023 - Autorización EXONET.
+ *
+ * Historial de cambios:
+ *   05/10/2026 Equipo de Desarrollo SIM: se corrigen las tarjetas transparentes. La hoja usaba
+ *     variables --color-* que no existen en el proyecto; una variable inexistente invalida la
+ *     declaración completa y el fondo quedaba transparente. Ahora los colores salen de una
+ *     paleta local de la HU que solo reutiliza variables globales existentes: las del SIM
+ *     (--sim-azul, --sim-celeste, index.css) y las de Bootstrap 5.3 (--bs-*). Se unifica el
+ *     bloque del historial, que estaba duplicado con valores distintos.
+ */
+
+/* ----------------------------------------------------------------------------
+   Paleta local de la HU. Solo alias de variables globales existentes; no se
+   declaran en :root para no afectar otras pantallas.
+---------------------------------------------------------------------------- */
+
+.sim-autorizacion-vigente,
+.sim-autorizacion-formulario,
+.sim-autorizacion-historial,
+.modal[aria-labelledby="ttlAnularAutorizacion"] {
+    --sim-aut-primario: var(--sim-azul);
+    --sim-aut-secundario: var(--sim-celeste);
+    --sim-aut-superficie: var(--bs-body-bg);
+    --sim-aut-fondo-suave: var(--bs-tertiary-bg);
+    --sim-aut-borde: var(--bs-border-color);
+    --sim-aut-texto: var(--bs-body-color);
+    --sim-aut-texto-secundario: var(--bs-secondary-color);
+    --sim-aut-exito: var(--bs-success);
+    --sim-aut-error: var(--bs-danger);
+    --sim-aut-advertencia: var(--bs-warning);
+    --sim-aut-inactivo: var(--bs-secondary);
+}
+
+/* ----------------------------------------------------------------------------
+   Tarjetas. Conservan la franja celeste superior de .sim-card (index.css) y
+   recuperan su fondo blanco.
+---------------------------------------------------------------------------- */
+
+.sim-autorizacion-vigente,
+.sim-autorizacion-formulario,
+.sim-autorizacion-historial {
+    background-color: var(--sim-aut-superficie);
+    border-right: 1px solid var(--sim-aut-borde);
+    border-bottom: 1px solid var(--sim-aut-borde);
+    border-left: 1px solid var(--sim-aut-borde);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.sim-autorizacion-vigente > .card-body,
+.sim-autorizacion-formulario > .card-body {
+    background-color: var(--sim-aut-superficie);
+}
+
+.sim-autorizacion-vigente > .card-header,
+.sim-autorizacion-formulario > .card-header,
+.sim-autorizacion-historial > .card-header {
+    border-bottom: 1px solid var(--sim-aut-borde);
+}
+
+/* La vigente se distingue con un encabezado levemente verde. */
+.sim-autorizacion-vigente > .card-header {
+    background-color: color-mix(in srgb, var(--sim-aut-exito) 8%, var(--sim-aut-superficie));
+}
+
+.sim-autorizacion-formulario {
+    scroll-margin-top: 1rem;
+}
+
+.sim-autorizacion-formulario > .card-header {
+    background-color: color-mix(in srgb, var(--sim-aut-primario) 6%, var(--sim-aut-superficie));
+}
+
+/* ----------------------------------------------------------------------------
+   Resumen de la autorización vigente.
+---------------------------------------------------------------------------- */
+
+.sim-autorizacion-vigente dl dt {
+    color: var(--sim-aut-texto-secundario);
+    font-weight: 600;
+}
+
+.sim-autorizacion-vigente dl dd {
+    color: var(--sim-aut-texto);
+    margin-bottom: 0.65rem;
+}
+
+/* Enlaces de la HU: descarga de documentos y cadena de sustituciones. */
+.sim-autorizacion-vigente a,
+.sim-autorizacion-vigente .btn-link,
+.sim-autorizacion-historial a,
+.sim-autorizacion-historial .btn-link {
+    color: var(--sim-aut-primario);
+    font-weight: 500;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.sim-autorizacion-vigente a:hover,
+.sim-autorizacion-vigente .btn-link:hover,
+.sim-autorizacion-historial a:hover,
+.sim-autorizacion-historial .btn-link:hover {
+    color: color-mix(in srgb, var(--sim-aut-primario) 75%, black);
+}
+
+/* ----------------------------------------------------------------------------
+   Formulario.
+---------------------------------------------------------------------------- */
+
+.sim-autorizacion-formulario .form-label {
+    color: var(--sim-aut-texto);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.sim-autorizacion-formulario .form-control {
+    background-color: var(--sim-aut-superficie);
+    border-color: var(--sim-aut-borde);
+}
+
+.sim-autorizacion-formulario .form-control:focus {
+    border-color: var(--sim-aut-primario);
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--sim-aut-primario) 18%, transparent);
+}
+
+/* Datos ya registrados al completar: de solo lectura. */
+.sim-autorizacion-formulario .form-control[readonly] {
+    background-color: var(--sim-aut-fondo-suave);
+    color: var(--sim-aut-texto-secundario);
+}
+
+.sim-autorizacion-formulario .form-control.is-invalid {
+    border-color: var(--sim-aut-error);
+}
+
+.sim-autorizacion-formulario textarea {
+    resize: vertical;
+    min-height: 5.5rem;
+}
+
+.sim-autorizacion-formulario .form-text {
+    color: var(--sim-aut-texto-secundario);
+}
+
+/* ----------------------------------------------------------------------------
+   Historial: fondo suave en la tarjeta y cada autorización como tarjeta blanca.
+---------------------------------------------------------------------------- */
+
+.sim-autorizacion-historial > .card-body {
+    background-color: var(--sim-aut-fondo-suave);
+    padding: 1rem;
+}
+
+.sim-autorizacion-historial .list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Se anulan los bordes compartidos de .list-group para separar las tarjetas. */
+.sim-autorizacion-historial .list-group-item.sim-autorizacion-item {
+    display: block;
+    margin: 0;
+    padding: 1rem 1.1rem;
+    background-color: var(--sim-aut-superficie);
+    color: var(--sim-aut-texto);
+    border: 1px solid var(--sim-aut-borde);
+    border-left: 4px solid var(--sim-aut-borde);
+    border-radius: 0.65rem;
+    box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.05);
+    scroll-margin-top: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sim-autorizacion-historial .list-group-item.sim-autorizacion-item + .list-group-item {
+    border-top-width: 1px;
+}
+
+/* Franja izquierda según el estado de la autorización. */
+.sim-autorizacion-historial .sim-autorizacion-item:has(.badge.text-bg-success) {
+    border-left-color: var(--sim-aut-exito);
+}
+
+.sim-autorizacion-historial .sim-autorizacion-item:has(.badge.text-bg-secondary) {
+    border-left-color: var(--sim-aut-inactivo);
+}
+
+.sim-autorizacion-historial .sim-autorizacion-item:has(.badge.text-bg-danger) {
+    border-left-color: var(--sim-aut-error);
+}
+
+.sim-autorizacion-historial .sim-autorizacion-item:hover {
+    box-shadow: 0 0.25rem 0.65rem rgba(0, 0, 0, 0.08);
+}
+
+/* Destino de los enlaces "Sustituye a" / "reemplazada por". */
+.sim-autorizacion-historial .sim-autorizacion-item:target {
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--sim-aut-secundario) 45%, transparent);
+}
+
+.sim-autorizacion-item .badge {
+    min-width: 4.5rem;
+    text-align: center;
+}
+
+.sim-autorizacion-item strong {
+    color: var(--sim-aut-texto);
+}
+
+.sim-autorizacion-item p {
+    margin-top: 0.45rem;
+}
+
+.sim-autorizacion-item .text-muted {
+    color: var(--sim-aut-texto-secundario) !important;
+    margin-top: 0.35rem;
+}
+
+.sim-autorizacion-item .sim-referencia,
+.sim-autorizacion-vigente .sim-referencia {
+    overflow-wrap: anywhere;
+}
+
+/* ----------------------------------------------------------------------------
+   Modal de anulación.
+---------------------------------------------------------------------------- */
+
+.modal[aria-labelledby="ttlAnularAutorizacion"] .modal-content {
+    border: 1px solid var(--sim-aut-borde);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.modal[aria-labelledby="ttlAnularAutorizacion"] .modal-header,
+.modal[aria-labelledby="ttlAnularAutorizacion"] .modal-footer {
+    background-color: var(--sim-aut-fondo-suave);
+    border-color: var(--sim-aut-borde);
+}
+
+.modal[aria-labelledby="ttlAnularAutorizacion"] .form-label {
+    font-weight: 600;
+    color: var(--sim-aut-texto);
+}
+
+.modal[aria-labelledby="ttlAnularAutorizacion"] .form-control:focus {
+    border-color: var(--sim-aut-error);
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--sim-aut-error) 16%, transparent);
+}
+
+/* ----------------------------------------------------------------------------
+   Pantallas angostas.
+---------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+    .sim-autorizacion-vigente dl dt {
+        margin-top: 0.45rem;
+    }
+
+    .sim-autorizacion-vigente dl dd {
+        margin-bottom: 0.35rem;
+    }
+
+    .sim-autorizacion-vigente .btn,
+    .sim-autorizacion-formulario .btn {
+        width: 100%;
+    }
+
+    .sim-autorizacion-historial .list-group-item.sim-autorizacion-item {
+        padding: 0.9rem;
+    }
+}
+
+/* Respeta a quienes prefieren menos animación. */
+@media (prefers-reduced-motion: reduce) {
+    .sim-autorizacion-historial .list-group-item.sim-autorizacion-item {
+        transition: none;
+    }
+}

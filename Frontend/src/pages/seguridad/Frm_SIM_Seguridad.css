@@ -1,0 +1,57 @@
+/*
+ * Autor: Equipo de Desarrollo SIM
+ * Fecha: 12/10/2026
+ * Descripción: Paleta y estilos de botones de las pantallas del módulo de seguridad (HU-001 y
+ *   HU-003). Provienen del index.css de la rama de roles y se limitan a la clase .sim-seguridad
+ *   para no cambiar el estilo global de main.
+ */
+.sim-seguridad {
+    --color-primario: #005DA4;
+    --color-secundario: #00C0F3;
+    --color-fondo: #E6E6E6;
+    --color-superficie: #FFFFFF;
+    --color-texto: #212529;
+
+    --color-advertencia: #FFE06A;
+    --color-exito: #6DC067;
+
+    --color-borde: #CED4DA;
+    --color-texto-secundario: #6C757D;
+    --color-fondo-suave: #F5F7FA;
+    --color-primario-enfoque: rgba(0, 93, 164, 0.12);
+
+    --color-error: #C92A2A;
+
+    color: var(--color-texto);
+}
+
+.sim-seguridad *,
+.sim-seguridad *::before,
+.sim-seguridad *::after {
+    box-sizing: border-box;
+}
+
+.sim-seguridad .btn-primary {
+    --bs-btn-bg: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-bg: #004f8c;
+    --bs-btn-hover-border-color: #004f8c;
+    --bs-btn-active-bg: #00477e;
+    --bs-btn-active-border-color: #00477e;
+}
+
+.sim-seguridad .btn-outline-primary {
+    --bs-btn-color: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-bg: var(--color-primario);
+    --bs-btn-hover-border-color: var(--color-primario);
+}
+
+/* Descripción breve de la funcionalidad, debajo del título de la pantalla. */
+.sim-seguridad .descripcion-pantalla {
+    margin: -18px 0 24px;
+    max-width: 62rem;
+    color: var(--color-texto-secundario);
+    font-size: 15px;
+    line-height: 1.5;
+}

@@ -1,0 +1,235 @@
+/* --------------------------------------------------
+   HU-020 · Observaciones de exoneración
+-------------------------------------------------- */
+
+.sim-observaciones-borradores,
+.sim-observaciones-historial {
+    overflow: hidden;
+}
+
+/* --------------------------------------------------
+   Borradores
+-------------------------------------------------- */
+
+.sim-observaciones-borradores .card-header {
+    border-bottom: 1px solid var(--color-borde);
+
+    background-color:
+            color-mix(
+                    in srgb,
+                    var(--color-advertencia) 32%,
+                    var(--color-superficie)
+            );
+
+    color: var(--color-texto);
+
+    font-weight: 600;
+}
+
+.sim-observacion-borrador {
+    border-left: 4px solid var(--color-advertencia);
+
+    background-color: var(--color-superficie);
+
+    transition:
+            background-color 0.15s ease,
+            border-color 0.15s ease;
+}
+
+.sim-observacion-borrador + .sim-observacion-borrador {
+    border-top-color: var(--color-borde);
+}
+
+.sim-observacion-borrador[aria-current="true"] {
+    border-left-color: var(--color-primario);
+
+    background-color:
+            color-mix(
+                    in srgb,
+                    var(--color-primario) 5%,
+                    var(--color-superficie)
+            );
+}
+
+.sim-observacion-borrador .badge.text-bg-warning {
+    background-color: var(--color-advertencia) !important;
+    color: var(--color-texto) !important;
+}
+
+/* --------------------------------------------------
+   Historial confirmado
+-------------------------------------------------- */
+
+.sim-observaciones-historial .card-header {
+    border-bottom: 1px solid var(--color-borde);
+
+    background-color:
+            color-mix(
+                    in srgb,
+                    var(--color-exito) 16%,
+                    var(--color-superficie)
+            );
+
+    color: var(--color-texto);
+
+    font-weight: 600;
+}
+
+.sim-observacion-historial {
+    border-left: 4px solid var(--color-exito);
+
+    background-color: var(--color-superficie);
+}
+
+.sim-observacion-historial + .sim-observacion-historial {
+    border-top-color: var(--color-borde);
+}
+
+.sim-observacion-historial .badge.text-bg-success {
+    background-color: var(--color-exito) !important;
+    color: var(--color-texto) !important;
+}
+
+/* --------------------------------------------------
+   Texto de la observación
+-------------------------------------------------- */
+
+.sim-observacion-texto {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    color: var(--color-texto);
+
+    line-height: 1.55;
+}
+
+/* --------------------------------------------------
+   Formulario
+-------------------------------------------------- */
+
+#frmObservacion .card-header {
+    background-color: var(--color-fondo-suave);
+    color: var(--color-texto);
+
+    font-weight: 600;
+
+    border-bottom: 1px solid var(--color-borde);
+}
+
+#frmObservacion .form-control[readonly] {
+    background-color: var(--color-fondo-suave);
+
+    color: var(--color-texto-secundario);
+
+    cursor: default;
+}
+
+#frmObservacion textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+/* --------------------------------------------------
+   Listas
+-------------------------------------------------- */
+
+.sim-observaciones-borradores .list-group,
+.sim-observaciones-historial .list-group {
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.sim-observacion-borrador strong,
+.sim-observacion-historial strong {
+    color: var(--color-texto);
+}
+
+/* --------------------------------------------------
+   Botones de borradores
+-------------------------------------------------- */
+
+.sim-observacion-borrador .btn-group {
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------
+   Modal
+-------------------------------------------------- */
+
+#ttlAccionObservacion {
+    color: var(--color-texto);
+}
+
+.modal-content {
+    border: 1px solid var(--color-borde);
+
+    border-radius: 12px;
+
+    box-shadow:
+            0 12px 32px
+            rgba(0, 0, 0, 0.16);
+}
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .sim-observacion-borrador > .d-flex {
+        flex-direction: column;
+    }
+
+    .sim-observacion-borrador .btn-group {
+        width: 100%;
+
+        display: flex;
+    }
+
+    .sim-observacion-borrador .btn-group .btn {
+        flex: 1 1 0;
+
+        white-space: normal;
+    }
+
+    .sim-observacion-historial {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    #frmObservacion .d-flex.justify-content-end {
+        justify-content: stretch !important;
+    }
+
+    #frmObservacion .d-flex.justify-content-end .btn {
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .sim-observacion-borrador .btn-group {
+        flex-direction: column;
+    }
+
+    .sim-observacion-borrador .btn-group .btn {
+        width: 100%;
+
+        border-radius: 6px !important;
+    }
+
+    #frmObservacion .d-flex.justify-content-end {
+        flex-direction: column;
+    }
+
+    #frmObservacion .d-flex.justify-content-end .btn {
+        width: 100%;
+    }
+
+    .sim-observaciones-borradores .card-header,
+    .sim-observaciones-historial .card-header {
+        align-items: flex-start !important;
+    }
+}

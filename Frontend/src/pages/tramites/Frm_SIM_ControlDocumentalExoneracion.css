@@ -1,0 +1,31 @@
+/*
+ * Autor: Equipo de Desarrollo SIM
+ * Fecha: 05/10/2026
+ * Descripción: Estilos del control de documentos obligatorios de la exoneración (HU-021).
+ */
+
+.sim-control-pendiente {
+    background-color: #fbe9e9;
+}
+
+.sim-control-indicador {
+    background-color: #f5f7f9;
+    border-radius: 6px;
+    padding: 12px;
+    height: 100%;
+}
+
+.sim-control-valor {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sim-azul);
+}
+
+.sim-control-alerta {
+    background-color: #fbe9e9;
+    color: #9b2c2c;
+}
+
+.sim-control-alerta .sim-control-valor {
+    color: #9b2c2c;
+}

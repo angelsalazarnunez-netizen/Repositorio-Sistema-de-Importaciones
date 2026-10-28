@@ -1,0 +1,21 @@
+/*
+ * Autor: Equipo de Desarrollo SIM
+ * Fecha: 05/10/2026
+ * Descripción: Estilos de la aprobación de la solicitud de exoneración (HU-022).
+ */
+
+.sim-aprobacion-expediente {
+    background-color: #f5f7f9;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.sim-aprobacion-opcion {
+    white-space: normal;
+}
+
+.btn-check:checked + .sim-aprobacion-opcion {
+    background-color: #e6eff8;
+    border-color: var(--sim-azul);
+    color: var(--sim-azul);
+}

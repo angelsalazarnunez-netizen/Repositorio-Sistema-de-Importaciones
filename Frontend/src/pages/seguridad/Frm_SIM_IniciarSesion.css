@@ -1,0 +1,60 @@
+.sim-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at top left, rgb(0 192 243 / 16%), transparent 34rem),
+    var(--sim-fondo);
+}
+
+.sim-login__tarjeta {
+  width: min(100%, 28rem);
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem rgb(0 35 65 / 15%);
+}
+
+.sim-login__encabezado {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  color: #fff;
+  background: var(--sim-azul);
+}
+
+.sim-login__encabezado img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background: #fff;
+}
+
+.sim-login__encabezado p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sim-login__contenido {
+  padding: 2rem;
+}
+
+.sim-login__contenido h1 {
+  color: var(--sim-azul);
+  font-size: 1.65rem;
+}
+
+.sim-login__contenido .form-control:focus {
+  border-color: var(--sim-celeste);
+  box-shadow: 0 0 0 0.2rem rgb(0 192 243 / 20%);
+}
+
+@media (max-width: 480px) {
+  .sim-login__contenido {
+    padding: 1.5rem;
+  }
+}

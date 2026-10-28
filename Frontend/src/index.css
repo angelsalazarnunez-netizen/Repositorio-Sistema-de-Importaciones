@@ -1,0 +1,189 @@
+/*
+ * Autor: Katherine Susana Valverde Fallas
+ * Fecha: 22/09/2026
+ * Descripción: Paleta y estilos base del SIM, según el estándar de diseño del equipo (IS-011).
+ */
+:root {
+    --sim-azul: #005DA4;
+    --sim-celeste: #00C0F3;
+    --sim-fondo: #E6E6E6;
+}
+
+body {
+    background-color: var(--sim-fondo);
+    font-family: "Trueno", Arial, Helvetica, sans-serif;
+}
+
+.sim-navbar {
+    background-color: var(--sim-azul);
+}
+
+.sim-navbar .navbar-brand,
+.sim-navbar .navbar-text {
+    color: #ffffff;
+}
+
+.sim-logo {
+    height: 34px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.sim-card {
+    border: 0;
+    border-top: 4px solid var(--sim-celeste);
+}
+
+.sim-card > .card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    color: var(--sim-azul);
+    font-weight: 600;
+}
+
+.sim-encabezado {
+    background-color: #ffffff;
+    border-left: 5px solid var(--sim-celeste);
+    border-radius: 6px;
+}
+
+.sim-referencia {
+    font-family: "Consolas", "Courier New", monospace;
+    letter-spacing: 0.04em;
+}
+
+.sim-requerido::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.sim-opcional {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.btn-sim {
+    background-color: var(--sim-azul);
+    color: #ffffff;
+}
+
+.btn-sim:hover,
+.btn-sim:focus {
+    background-color: #004a83;
+    color: #ffffff;
+}
+
+.sim-pie {
+    background-color: #ffffff;
+    border-top: 3px solid var(--sim-celeste);
+}
+
+.sim-archivos {
+    list-style: none;
+    margin: 0.35rem 0 0;
+    padding: 0;
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+/*
+ * Pruebas de usabilidad (PU-07): el texto de ejemplo de los campos se confundía con datos ya
+ * digitados. Se muestra más claro y en cursiva para distinguirlo del texto ingresado.
+ */
+.form-control::placeholder,
+textarea::placeholder,
+input::placeholder {
+    color: #b4bbc2;
+    font-style: italic;
+    opacity: 1;
+}
+
+/* Descripción breve de la funcionalidad, debajo del título de cada pantalla principal. */
+.sim-descripcion-pantalla {
+    color: #5c6670;
+    font-size: .875rem;
+    margin-bottom: 0;
+    max-width: 62rem;
+}
+
+/* PU-02: pestañas de navegación de los expedientes, fijas al desplazarse. */
+.sim-pestanas {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: var(--sim-fondo);
+    padding-top: .25rem;
+}
+
+.sim-pestanas .nav-link {
+    color: var(--sim-azul);
+    font-weight: 500;
+}
+
+.sim-pestanas .nav-link.active {
+    border-top: 3px solid var(--sim-celeste);
+    font-weight: 600;
+}
+
+/* PU-12: barra de desplazamiento horizontal también arriba de las tablas anchas. */
+.sim-scroll-superior {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 14px;
+}
+
+.sim-scroll-superior > div {
+    height: 1px;
+}
+
+.sim-tabla-columna-fija th:first-child,
+.sim-tabla-columna-fija td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background-color: #ffffff;
+    box-shadow: inset -1px 0 0 #dee2e6;
+}
+
+/* HU-034 Buscar y filtrar trámites. */
+.sim-seleccion-multiple .dropdown-menu {
+    max-height: 16rem;
+    overflow-y: auto;
+}
+
+.sim-tabla-busqueda th {
+    white-space: nowrap;
+    font-size: .85rem;
+}
+
+.sim-tabla-busqueda td {
+    font-size: .85rem;
+}
+
+.sim-no-registrado {
+    font-style: italic;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+/* Imprimir bitácora: durante la impresión solo se ve la sección marcada (Cmp_SIM_ImprimirBitacora). */
+@media print {
+    body.sim-imprimir-seccion * {
+        visibility: hidden;
+    }
+
+    body.sim-imprimir-seccion .sim-seccion-impresa,
+    body.sim-imprimir-seccion .sim-seccion-impresa * {
+        visibility: visible;
+    }
+
+    body.sim-imprimir-seccion .sim-seccion-impresa {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,115 @@
+:root {
+    --sim-azul: #12395f;
+    --sim-azul-claro: #1d5c93;
+    --sim-acento: #f0a202;
+    --sim-fondo: #f4f6f9;
+    --sim-borde: #dfe4ea;
+}
+
+body {
+    background-color: var(--sim-fondo);
+    color: #23303d;
+}
+
+.sim-navbar {
+    background: linear-gradient(90deg, var(--sim-azul) 0%, var(--sim-azul-claro) 100%);
+}
+
+.sim-navbar .navbar-brand,
+.sim-navbar .nav-link {
+    color: #ffffff;
+}
+
+.sim-navbar .nav-link:hover {
+    color: var(--sim-acento);
+}
+
+.sim-encabezado {
+    border-left: 5px solid var(--sim-acento);
+    background-color: #ffffff;
+    border-radius: .5rem;
+}
+
+.sim-card {
+    border: 1px solid var(--sim-borde);
+    border-radius: .5rem;
+}
+
+.sim-card > .card-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--sim-borde);
+    font-weight: 600;
+    color: var(--sim-azul);
+}
+
+.sim-card > .card-header .bi {
+    color: var(--sim-acento);
+}
+
+.sim-requerido::after {
+    content: " *";
+    color: #c0392b;
+    font-weight: 700;
+}
+
+.sim-opcional {
+    font-size: .8rem;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+/* Solo se resalta el error: el check verde en cada campo opcional distrae. */
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+    border-color: var(--sim-borde);
+    background-image: none;
+}
+
+.sim-archivos {
+    list-style: none;
+    margin: .5rem 0 0;
+    padding: 0;
+}
+
+.sim-archivos li {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    background-color: #eef3f8;
+    border: 1px solid var(--sim-borde);
+    border-radius: 1rem;
+    padding: .15rem .7rem;
+    margin: .2rem .3rem .2rem 0;
+    font-size: .8rem;
+}
+
+.sim-referencia {
+    font-family: "Consolas", "Courier New", monospace;
+    letter-spacing: .05em;
+}
+
+.btn-sim {
+    background-color: var(--sim-azul);
+    border-color: var(--sim-azul);
+    color: #ffffff;
+}
+
+.btn-sim:hover,
+.btn-sim:focus {
+    background-color: var(--sim-azul-claro);
+    border-color: var(--sim-azul-claro);
+    color: #ffffff;
+}
+
+.sim-pie {
+    font-size: .85rem;
+    color: #6c757d;
+}
+
+/* Logo institucional de la barra de navegación (estándar D05). La altura en rem mantiene
+   la proporción del logo sin fijar anchos en píxeles (estándar D07). */
+.sim-logo {
+    height: 2rem;
+    width: auto;
+    vertical-align: middle;
+}

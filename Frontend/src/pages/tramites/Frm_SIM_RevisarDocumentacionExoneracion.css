@@ -1,0 +1,44 @@
+.sim-tabla-revision {
+    margin-bottom: 0;
+}
+
+.sim-tabla-revision thead th {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.sim-tabla-revision tbody td {
+    vertical-align: middle;
+}
+
+.sim-revision-estado {
+    min-width: 150px;
+}
+
+.sim-revision-observacion {
+    min-width: 280px;
+}
+
+.sim-revision-observacion textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.sim-tabla-revision .form-select:disabled,
+.sim-tabla-revision .form-control:disabled {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .sim-revision-observacion {
+        min-width: 220px;
+    }
+}
+
+.sim-tabla-revision td {
+    word-break: normal;
+}
+
+.sim-tabla-revision .text-break {
+    overflow-wrap: anywhere;
+}
